@@ -29,9 +29,9 @@ public class PieChartMonitor extends ApplicationFrame {
 
     public static JFreeChart createChart( PieDataset dataset ) {
         JFreeChart chart = ChartFactory.createPieChart(
-                "PieChart",   // chart title
-                dataset,          // data
-                true,             // include legend
+                "PieChart",
+                dataset,
+                true,
                 true,
                 false);
 
