@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-11-05T10:23:51 PET" name="Surefire suite" finished-at="2020-11-05T10:23:56 PET" duration-ms="4896">
+    <groups>
+    </groups>
+    <test started-at="2020-11-05T10:23:51 PET" name="Surefire test" finished-at="2020-11-05T10:23:56 PET" duration-ms="4896">
+      <class name="SubjectTest">
+        <test-method signature="test_primer()[pri:0, instance:SubjectTest@66ad7bf0]" started-at="2020-11-05T10:23:51 PET" name="test_primer" finished-at="2020-11-05T10:23:56 PET" duration-ms="4728" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test_primer -->
+      </class> <!-- SubjectTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

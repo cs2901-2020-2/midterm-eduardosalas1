@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BarChartMonitor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">midterm</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">BarChartMonitor.java</span></div><h1>BarChartMonitor.java</h1><pre class="source lang-java linenums">import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.ChartUtils;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.ui.ApplicationFrame;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
+
+import java.io.File;
+import java.io.IOException;
+
+
+public class BarChartMonitor extends ApplicationFrame {
+
+    public BarChartMonitor(String applicationTitle, String chartTitle, Double A, Double B, Double C, Double D) throws IOException {
+<span class="fc" id="L17">        super(applicationTitle);</span>
+<span class="fc" id="L18">        JFreeChart barChart = ChartFactory.createBarChart(</span>
+                chartTitle,
+                &quot;Categoria&quot;,
+                &quot;Puntaje&quot;,
+<span class="fc" id="L22">                createDataset(A, B, C, D),</span>
+                PlotOrientation.VERTICAL,
+                true, true, false);
+
+<span class="fc" id="L26">        ChartPanel chartPanel = new ChartPanel(barChart);</span>
+<span class="fc" id="L27">        chartPanel.setPreferredSize(new java.awt.Dimension(560, 367));</span>
+<span class="fc" id="L28">        setContentPane(chartPanel);</span>
+<span class="fc" id="L29">        File BarChart = new File(&quot;Barchart.jpeg&quot;);</span>
+<span class="fc" id="L30">        ChartUtils.saveChartAsJPEG(BarChart,barChart,640,480);</span>
+
+<span class="fc" id="L32">    }</span>
+
+    public BarChartMonitor(String title) {
+<span class="nc" id="L35">        super(title);</span>
+<span class="nc" id="L36">    }</span>
+
+    private CategoryDataset createDataset(Double A, Double B, Double C, Double D) {
+<span class="fc" id="L39">        final String RegionA = &quot;A&quot;;</span>
+<span class="fc" id="L40">        final String RegionB = &quot;B&quot;;</span>
+<span class="fc" id="L41">        final String RegionC = &quot;C&quot;;</span>
+<span class="fc" id="L42">        final String RegionD = &quot;D&quot;;</span>
+<span class="fc" id="L43">        final String simple = &quot;Simple&quot;;</span>
+<span class="fc" id="L44">        final DefaultCategoryDataset dataset =</span>
+                new DefaultCategoryDataset();
+
+<span class="fc" id="L47">        dataset.addValue(A, RegionA, simple);</span>
+
+<span class="fc" id="L49">        dataset.addValue(B, RegionB, simple);</span>
+
+<span class="fc" id="L51">        dataset.addValue(C, RegionC, simple);</span>
+
+<span class="fc" id="L53">        dataset.addValue(D, RegionD, simple);</span>
+
+<span class="fc" id="L55">        return dataset;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

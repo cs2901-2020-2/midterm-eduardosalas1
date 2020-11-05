@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PieChartMonitor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">midterm</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">PieChartMonitor.java</span></div><h1>PieChartMonitor.java</h1><pre class="source lang-java linenums">import javax.swing.JPanel;
+
+import org.jfree.chart.*;
+import org.jfree.chart.ui.ApplicationFrame;
+import org.jfree.data.*;
+import org.jfree.*;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.general.PieDataset;
+
+import java.io.File;
+import java.io.IOException;
+
+public class PieChartMonitor extends ApplicationFrame {
+
+
+    public PieChartMonitor(String title,Double A, Double B, Double C, Double D) throws IOException {
+<span class="fc" id="L17">        super(title);</span>
+<span class="fc" id="L18">        setContentPane(createDemoPanel(A,B,C,D));</span>
+<span class="fc" id="L19">    }</span>
+
+    public static PieDataset createDataset(Double A, Double B, Double C, Double D) {
+<span class="fc" id="L22">        DefaultPieDataset dataset = new DefaultPieDataset( );</span>
+<span class="fc" id="L23">        dataset.setValue( &quot;A&quot; , A );</span>
+<span class="fc" id="L24">        dataset.setValue( &quot;B&quot; , B);</span>
+<span class="fc" id="L25">        dataset.setValue( &quot;C&quot; , C);</span>
+<span class="fc" id="L26">        dataset.setValue( &quot;D&quot; , D);</span>
+<span class="fc" id="L27">        return dataset;</span>
+    }
+
+    public static JFreeChart createChart( PieDataset dataset ) {
+<span class="fc" id="L31">        JFreeChart chart = ChartFactory.createPieChart(</span>
+                &quot;PieChart&quot;,
+                dataset,
+                true,
+                true,
+                false);
+
+<span class="fc" id="L38">        return chart;</span>
+    }
+
+    public static JPanel createDemoPanel(Double A,Double B,Double C,Double D) throws IOException {
+<span class="fc" id="L42">        JFreeChart chart = createChart(createDataset(A,B,C,D) );</span>
+<span class="fc" id="L43">        File pieChart = new File(&quot;PieChart.jpeg&quot;);</span>
+<span class="fc" id="L44">        ChartUtils.saveChartAsJPEG(pieChart, chart , 640, 480 );</span>
+<span class="fc" id="L45">        return new ChartPanel( chart );</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
