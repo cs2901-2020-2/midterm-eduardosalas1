@@ -7,10 +7,13 @@ import org.jfree.*;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
 
+import java.io.File;
+import java.io.IOException;
+
 public class PieChartMonitor extends ApplicationFrame {
 
 
-    public PieChartMonitor(String title,Double A, Double B, Double C, Double D) {
+    public PieChartMonitor(String title,Double A, Double B, Double C, Double D) throws IOException {
         super(title);
         setContentPane(createDemoPanel(A,B,C,D));
     }
@@ -35,8 +38,10 @@ public class PieChartMonitor extends ApplicationFrame {
         return chart;
     }
 
-    public static JPanel createDemoPanel(Double A,Double B,Double C,Double D) {
+    public static JPanel createDemoPanel(Double A,Double B,Double C,Double D) throws IOException {
         JFreeChart chart = createChart(createDataset(A,B,C,D) );
+        File pieChart = new File("PieChart.jpeg");
+        ChartUtils.saveChartAsJPEG(pieChart, chart , 640, 480 );
         return new ChartPanel( chart );
     }
 }

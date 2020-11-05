@@ -1,15 +1,19 @@
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
+import org.jfree.chart.ChartUtils;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.ui.ApplicationFrame;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 
+import java.io.File;
+import java.io.IOException;
+
 
 public class BarChartMonitor extends ApplicationFrame {
 
-    public BarChartMonitor(String applicationTitle, String chartTitle, Double A, Double B, Double C, Double D) {
+    public BarChartMonitor(String applicationTitle, String chartTitle, Double A, Double B, Double C, Double D) throws IOException {
         super(applicationTitle);
         JFreeChart barChart = ChartFactory.createBarChart(
                 chartTitle,
@@ -22,6 +26,9 @@ public class BarChartMonitor extends ApplicationFrame {
         ChartPanel chartPanel = new ChartPanel(barChart);
         chartPanel.setPreferredSize(new java.awt.Dimension(560, 367));
         setContentPane(chartPanel);
+        File BarChart = new File("Barchart.jpeg");
+        ChartUtils.saveChartAsJPEG(BarChart,barChart,640,480);
+
     }
 
     public BarChartMonitor(String title) {
